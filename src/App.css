@@ -1,38 +1,261 @@
-.App {
+/*  styling scrollbars  */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #a5aaad;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #265acc;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a5aaad;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  list-style: none;
+}
+
+.sidebar{
+  position: fixed;
+  background: linear-gradient(#3358f4,#1d8cf8);
+  width: 240px;
+  height: 100%;
+  box-sizing: border-box;
+  transition: width .2s ease-in;
+}
+
+.sidebar.inactive{
+  width: 80px;
+}
+
+.sidebar .top-section{
+  height: 80px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar .top-section .sidebar-toggle-btn{
+  color: #3358f4;
+  position: absolute;
+  right: -40px;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.sidebar.inactive .top-section .sidebar-toggle-btn{
+  right: -50px;
+}
+
+.sidebar .top-section .logo{
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+}
+
+.sidebar .main-menu{
+  margin: 5px 0;
+  position: relative;
+  max-height: 250px;
+}
+
+.sidebar .main-menu ul{
+  padding-left: 15px;
+}
+
+.sidebar.inactive .main-menu ul{
+  padding: 0;
+  text-align: center;
+}
+ 
+.sidebar .main-menu .menu-item{
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sidebar .main-menu .menu-item.active{
+  background: #0f38715c;
+  border-radius: 40px 0 0 40px;
+}
+
+.sidebar .main-menu .menu-item .menu-icon{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  line-height: 40px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sidebar .main-menu .menu-item span{
+  position: absolute;
+  display: inline-block;
+  line-height: 40px;
+  opacity: 1;
+  transition: opacity .2s ease-in;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sidebar.inactive .main-menu .menu-item span{
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar .main-menu .sub-menu{
+    color: #fff;
+    margin-left: 20px;
+    border-left: 1px solid #fff;
+    box-sizing: border-box;
+    padding-left: 30px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .2s ease-in;
+}
+
+.sidebar .main-menu .sub-menu.active{
+  max-height: 200px;
+}
+
+.sidebar .main-menu .sub-menu a{
+  display: block;
+  margin: 5px 0;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.sidebar .main-menu .sub-menu a.active{
+  color: #0f3871d6;  
+}
+
+.divider{
+  margin: 0 15px 0 15px;
+  height: 1px;
+  border-radius: 1px;
+  background: #fff;
+}
+
+.main-container{
+  margin-left: 240px;
+  transition: margin-left .2s ease-in;
+  box-sizing: border-box;
+}
+
+.main-container.inactive {
+  margin-left: 80px;
+}
+
+.nav .user-wrapper{
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
+  margin-right: 30px;
+}
+
+.nav .user-wrapper .user-img{
+  margin-right: 10px;
+}
+
+.nav .user-wrapper .user-img img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.nav .user-wrapper span{
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.nav .alarm-wrapper{
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.nav .alarm-wrapper .alarm-icon i{
+  color: #c1c1c1;
+  font-size: 1.4rem;
+}
+
+.nav .alarm-wrapper .alarm-icon .notification{
+  background: red;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.error-wrapper{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-top: 45px;
 }
 
-.App-link {
-  color: #61dafb;
+.error-wrapper .error-code{
+  margin-right: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error-wrapper .error-code span{
+  color: #3358f4;
+  font-size: 10.0rem;
+}
+
+.error-wrapper .error-text{
+  color: #444;
+}
+
+.error-wrapper .error-text h1{
+  font-weight: 800;
+}
+
+.error-wrapper .error-text p{
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.error-wrapper .error-home-btn{
+  color: #3358f4;
+  display: inline-block;
+}
+
+.error-wrapper .error-home-btn span{
+  margin-left: 5px;
+  font-size: 1.2rem;
+}
+
+.h-600-wrapper{
+  height: 600px;
+}
+
+.gltf-canvas{
+  border-radius: 5px;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.text-gray-800{
+  font-weight: 800;
+  color: #444;
 }
