@@ -32,7 +32,16 @@ export const menuItems = [
       { name: "Videos", to: "/content-2/videos" },
     ],
   },
-  { name: "Datas", to: `/data`, iconClassName: "bi bi-cloud" },
+  {
+    name: "Datas",
+    exact: true,
+    to: `/data`,
+    iconClassName: "bi bi-cloud",
+    subMenus: [
+      { name: "data1", to: "/datas/1" },
+      { name: "data2", to: "/datas/2" },
+    ],
+  },
   { name: "Admin", to: `/admin`, iconClassName: "bi bi-person" },
   { name: "Setting", to: `/setting`, iconClassName: "bi bi-tools" },
 ];
@@ -54,25 +63,43 @@ const Sidebar = (props) => {
       });
     };
 
-    // imporvement over click function fo menuItem
     useEffect(() => {
       let menuItems = document.querySelectorAll(".menu-item");
       menuItems.forEach((el) => {
         el.addEventListener("click", (e) => {
           const next = el.nextElementSibling;
-          removeActiveClassFromSubMenu(); // set the toggle inactive
-
+          removeActiveClassFromSubMenu();
           menuItems.forEach((el) => el.classList.remove("active"));
-          el.classList.toggle("active"); // menu-item toggle active
+          el.classList.toggle("active");
+          console.log(next);
           if (next !== null) {
-            if (inactive) { // when sidebar has inactive, change active and set toggle active
-              setInactive(!inactive)
-            }
-            next.classList.toggle("active"); // sub menu-item toggle active
+            next.classList.toggle("active");
           }
         });
       });
     }, []);
+
+    // // imporvement over click function fo menuItem
+    // useEffect(() => {
+    //   let menuItems = document.querySelectorAll(".menu-item");
+
+    //   menuItems.forEach((el) => {
+    //     el.addEventListener("click", (e) => {
+    //       const next = el.nextElementSibling;
+    //       removeActiveClassFromSubMenu();
+
+    //       menuItems.forEach((el) => el.classList.remove("active"));
+    //       el.classList.toggle("active"); // menu-item toggle active
+    //       console.log(inactive)
+    //       if (next !== null) {
+    //         if (inactive) { // 활성화 안되있을떄
+    //           setInactive(!inactive)
+    //         }
+    //         next.classList.toggle("active"); // sub menu-item toggle active
+    //       }
+    //     });
+    //   });
+    // }, []);
   
     return(
         <div className={`sidebar ${inactive ? "inactive" : ""}`}>

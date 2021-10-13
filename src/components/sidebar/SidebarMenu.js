@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { NavLink,Link } from "react-router-dom";
 
 const MenuItem = (props) => {
-    const {name, subMenus, iconClassName, to, onclick} = props
+    const {name, subMenus, iconClassName, to} = props
       
     return(
-        <li onClick={props.onclick}>
+        <li onClick={props.onClick}>
             <Link exact to={to}
             className={`menu-item`}>
                 <div className="menu-icon">
