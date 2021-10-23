@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import logo from "../../logo.svg"
 import MenuItem from "./SidebarMenu";
@@ -6,7 +6,7 @@ import MenuItem from "./SidebarMenu";
 // added more menuItems
 export const menuItems = [
   {
-    name: "Dashboard",
+    name: "Overview",
     exact: true,
     to: "/",
     iconClassName: "bi bi-speedometer2",
@@ -16,30 +16,22 @@ export const menuItems = [
     exact: true,
     to: `/monitor`,
     iconClassName: "bi bi-camera-video",
-    subMenus: [
-      { name: "Camera", to: "/monitor/cam" },
-      { name: "Videos", to: "/monitor/videos" },
-    ],
   },
-  { name: "Design", to: `/design`, iconClassName: "bi bi-diagram-3" },
   {
-    name: "Content 2",
+    name: "Server",
     exact: true,
-    to: `/content-2`,
+    to: `/server`,
     iconClassName: "bi bi-hdd-rack",
-    subMenus: [
-      { name: "Courses", to: "/content-2/courses" },
-      { name: "Videos", to: "/content-2/videos" },
-    ],
   },
+  { name: "Gateway", to: `/gateway`, iconClassName: "bi bi-diagram-3" },
   {
     name: "Datas",
     exact: true,
     to: `/data`,
     iconClassName: "bi bi-cloud",
     subMenus: [
-      { name: "data1", to: "/datas/1" },
-      { name: "data2", to: "/datas/2" },
+      { name: "Server", to: "/datas/server" },
+      { name: "Camera", to: "/datas/cam" },
     ],
   },
   { name: "Admin", to: `/admin`, iconClassName: "bi bi-person" },
@@ -71,7 +63,6 @@ const Sidebar = (props) => {
           removeActiveClassFromSubMenu();
           menuItems.forEach((el) => el.classList.remove("active"));
           el.classList.toggle("active");
-          console.log(next);
           if (next !== null) {
             next.classList.toggle("active");
           }
@@ -79,28 +70,6 @@ const Sidebar = (props) => {
       });
     }, []);
 
-    // // imporvement over click function fo menuItem
-    // useEffect(() => {
-    //   let menuItems = document.querySelectorAll(".menu-item");
-
-    //   menuItems.forEach((el) => {
-    //     el.addEventListener("click", (e) => {
-    //       const next = el.nextElementSibling;
-    //       removeActiveClassFromSubMenu();
-
-    //       menuItems.forEach((el) => el.classList.remove("active"));
-    //       el.classList.toggle("active"); // menu-item toggle active
-    //       console.log(inactive)
-    //       if (next !== null) {
-    //         if (inactive) { // 활성화 안되있을떄
-    //           setInactive(!inactive)
-    //         }
-    //         next.classList.toggle("active"); // sub menu-item toggle active
-    //       }
-    //     });
-    //   });
-    // }, []);
-  
     return(
         <div className={`sidebar ${inactive ? "inactive" : ""}`}>
             <div className="top-section">
