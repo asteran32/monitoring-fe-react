@@ -13,10 +13,8 @@ const ServerItem = (props) => {
                         <img src={CloudImg} className="cam-img" alt="..." />
                     </div>
                     <div className="card-body">
-                        <div className="card-body">
-                            <h5 className="card-title text-center text-uppercase">{name}</h5>
-                            <p className="text-muted">{endpoint}</p>
-                        </div>
+                        <h5 className="card-title text-center text-uppercase">{name}</h5>
+                        <p className="card-text text-muted">{endpoint}</p>
                     </div>
                 </Link>
             </div>

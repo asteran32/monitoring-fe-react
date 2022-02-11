@@ -80,13 +80,9 @@ const WebRTCStream = (props) => {
     }, [])
 
     return(
-        <div className="row">
-            <div className="h-720-wrapper mb-2">
-                <div id="remoteVideo" className="camera-canvas">
-
-                </div>
-            </div>
+        <div id="remoteVideo" className="text-center">
         </div>
+
     )
 };
 

@@ -12,8 +12,8 @@ const addNewServer = (props) => {
     return axios.post("/server/client", props);
 };
 
-const delCurrentServer = (name) => {
-    return axios.delete("/server/client/:id", { name });
+const delCurrentServer = (id) => {
+    return axios.delete(`/server/client/${id}`);
 };
 
 const getAllCams = () => {
@@ -28,8 +28,8 @@ const addNewCam = (name, codec, rtsp) => {
     return axios.post("/monitor/cams", { name, codec, rtsp });
 };
 
-const delCurrentCam = () => {
-    return axios.defaults("/monitor/cams/:id")
+const delCurrentCam = (id) => {
+    return axios.delete(`/monitor/cams/${id}`);
 };
 
 export default {

@@ -11,7 +11,6 @@ const Monitor = ({match}) => {
             <Route exact path={match.path} component={CameraList}/>
             <Route exact path={`${match.path}/cam/add`} component={RegisterCamera} />
             <Route exact path={`${match.path}/:id`} component={CamDetail} />
-
         </div>
     )
 };

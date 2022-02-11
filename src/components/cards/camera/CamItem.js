@@ -14,8 +14,8 @@ const CameraItems = (props) => {
                     </div>
                     <div className="card-body">
                         <h5 className="card-title text-center text-uppercase">{name}</h5>
-                        <p className="text-muted">code : {codec}</p>
-                        <p className="text-muted">{rtsp}</p>
+                        <p className="card-text text-muted">code : {codec}</p>
+                        <p className="card-text text-muted">{rtsp}</p>
                     </div>
                 </Link>
             </div>

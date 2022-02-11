@@ -1,6 +1,7 @@
 import React from 'react';
 import StatusCard from '../cards/status/StatusCard';
 import GltfCards from '../cards/model/Gltf';
+import OpcuaClient from '../cards/opcua/OpcuaDataStream';
 
 const Overview = () => {
     return(
