@@ -23,6 +23,14 @@
   padding: 0;
 }
 
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
 .App-particles__container {
   overflow: hidden;
   position: absolute;
@@ -181,6 +189,10 @@ li{
   margin-left: 80px;
 }
 
+.nav {
+  height: 80px;
+}
+
 .nav .user-wrapper{
   display: flex;
   justify-content: flex-end;
@@ -188,14 +200,9 @@ li{
   margin-right: 30px;
 }
 
-.nav .user-wrapper .user-img{
-  margin-right: 10px;
-}
-
-.nav .user-wrapper .user-img img{
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+.nav .user-wrapper .user-icon{
+  color: #555;
+  font-size: 1.2rem;
 }
 
 .nav .user-wrapper span{
@@ -210,8 +217,8 @@ li{
 }
 
 .nav .alarm-wrapper .alarm-icon i{
-  color: #c1c1c1;
-  font-size: 1.4rem;
+  color: #555;
+  font-size: 1.2rem;
 }
 
 .nav .alarm-wrapper .alarm-icon .notification{
@@ -271,9 +278,9 @@ li{
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
 
-.text-gray-800{
-  font-weight: 800;
-  color: #444;
+.text-gray-600{
+  font-weight: 600;
+  color: #5a5a5a;
 }
 
 .h-720-wrapper{
@@ -283,4 +290,20 @@ li{
 .camera-canvas{
   border-radius: 5px;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.login-form-input{
+  width: 100%;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #999;
+  padding: 6px 30px;
+  box-sizing: border-box;
+}
+
+.cam-img{
+  padding: 0.25rem;
+  background-color: #fff;
+  max-width: 90%;
+  height: auto;
 }

@@ -9,28 +9,27 @@ const ServerList = ({match}) => {
 
     useEffect(() => {
         DataService.getAllServerList().then((response) => {
-            console.log(response.data)
             setDatas(response.data);
         });
     }, [])
 
     return(
-        <>
-        <div className="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 className="h3 mb-0 text-gray-800">Server</h1>
-            <Link to={`${match.url}/opcua/add`}>
-                <button className="btn btn-warning btn-icon-split">Add Server</button>
-            </Link>
+        <div className="container">
+            <div className="d-sm-flex align-items-center justify-content-between mb-4">
+                <h4 className="mb-0 text-gray-800">OPC UA Server</h4>
+                <Link to={`${match.url}/client/add`}>
+                    <button className="btn btn-outline-secondary">Add Server</button>
+                </Link>
+            </div>
+            <div className="row">
+            {datas && datas.map((data, index) => (
+                <ServerItem key={index}
+                name={data.name}
+                to={`${match.path}/${data.name}`}
+                endpoint={data.endpoint} />
+            ))}
+            </div>
         </div>
-        <div className="row">
-        {datas && datas.map((data, index) => (
-            <ServerItem key={index}
-            name={data.name}
-            to={`${match.path}/${data.name}`}
-            endpoint={data.endpoint} />
-        ))}
-        </div>
-        </>
     );
 
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,6 +12,8 @@ import Monitor from "./components/pages/Monitor";
 import Server from "./components/pages/Server";
 import PageNotFound from "./components/error/PageNotFound";
 import Login from "./components/pages/Login";
+import Register from "./components/pages/Register";
+
 const App = () =>{
   const [inactive, setInactive] = useState(false);
 
@@ -25,10 +27,11 @@ const App = () =>{
           <div className={`main-container ${inactive ? "inactive" : ""}`}>
             <Nav />
             <Switch>
-              <Route exact path="/" component={Overview} />
+              <Route exact path="/" component={Login} />
               <Route path="/monitor" component={Monitor} />
               <Route path="/server" component={Server} />
-              <Route path="/login" component={Login} />
+              <Route path="/overview" component={Overview} />
+              <Route path="/register" component={Register} />
               <Route path="*" component={PageNotFound} />
             </Switch>
           </div>

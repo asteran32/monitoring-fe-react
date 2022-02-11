@@ -8,7 +8,7 @@ export const menuItems = [
   {
     name: "Overview",
     exact: true,
-    to: "/",
+    to: "/overview",
     iconClassName: "bi bi-speedometer2",
   },
   {

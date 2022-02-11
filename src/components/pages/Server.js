@@ -11,7 +11,7 @@ const Server = ({match}) => {
         <div className="container-fluid mt-4">
             <Route exact path={match.path} component={ServerList}/>
             <Route exact path={`${match.path}/:id`} component={ServerDetail} />
-            <Route exact path={`${match.path}/opcua/add`} component={ServerRegistration} />
+            <Route exact path={`${match.path}/client/add`} component={ServerRegistration} />
         </div>
     )
 }
